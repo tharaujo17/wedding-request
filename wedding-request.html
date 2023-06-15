@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+      .actions {
+        display: block;
+        width: 200px;
+        margin-left: 100px;
+      }
+      .btn {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 500;
+        margin-right: 10px;
+        border-radius: 8px;
+        padding: 10px 16px;
+        cursor: pointer;
+        display: inline-block;
+        line-height: 20px;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        text-align: center;
+        border-style: none;
+      }
+
+      .button1 {
+        background-color: #ce0909;
+        color: #ffffff;
+        transition: color 100ms;
+      }
+
+      .button1:hover {
+        background-color: #8a0909;
+      }
+
+      .button2 {
+        background-color: rgb(216, 216, 216);
+        color: #333333;
+        transition: all 200ms;
+        z-index: 1000;
+      }
+    </style>
+    <title>Casa comigo?</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Quer casar cmg?</h1>
+      <div class="actions">
+        <button class="btn button1" id="yes">SIM</button>
+        <button class="btn button2" id="no">NÃO</button>
+      </div>
+    </div>
+    <script>
+      let yesBtn = document.getElementById("yes");
+      let noBtn = document.getElementById("no");
+
+      yesBtn.addEventListener("click", () => {
+        alert("Papéis assinados com sucesso!");
+      });
+
+      const moveButtonNo = () => {
+        noBtn.style.position = "fixed";
+
+        const randomTop =
+          Math.random() * (window.innerHeight - noBtn.offsetHeight);
+
+        const randomLeft =
+          Math.random() * (window.innerWidth - noBtn.offsetWidth);
+
+        noBtn.style.top = `${randomTop}px`;
+        noBtn.style.left = `${randomLeft}px`;
+      };
+
+      noBtn.addEventListener("click", moveButtonNo);
+      noBtn.addEventListener("mouseover", moveButtonNo);
+    </script>
+  </body>
+</html>
